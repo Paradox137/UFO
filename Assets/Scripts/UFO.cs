@@ -14,7 +14,7 @@ public class UFO : MonoBehaviour
     private Rigidbody _rightLegRb;
 
     [SerializeField]
-    private float _rotationMultiplier = 0.7f;
+    private float _rotationMultiplier = 0.85f;
     private void Start()
     {
         
@@ -43,6 +43,18 @@ public class UFO : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Enemy");
+        }
+
+        if (collision.gameObject.tag == "Friend")
+        {
+            Debug.Log("Friend");
+        }
+    }
     private void FixedUpdate()
     {
 
