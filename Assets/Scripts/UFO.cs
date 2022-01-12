@@ -15,9 +15,12 @@ public class UFO : MonoBehaviour
 
     [SerializeField]
     private float _rotationMultiplier = 0.85f;
+
+    [SerializeField]
+    private SceneLoader _sceneLoader;
     private void Start()
     {
-        
+        _sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
     private void Update()
@@ -48,6 +51,8 @@ public class UFO : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Enemy");
+
+            _sceneLoader.LoadScene(0);
         }
 
         if (collision.gameObject.tag == "Friend")
