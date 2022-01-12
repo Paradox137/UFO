@@ -141,8 +141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _leftLegRb: {fileID: 946176990}
-  _speed: 10
+  _speed: 4
   _rightLegRb: {fileID: 1192164483}
+  _rotationMultiplier: 0.7
 --- !u!54 &200039801 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 150729243, guid: b7938563d791a9d42b6542ba0b28c6b8, type: 3}
@@ -367,6 +368,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 150729243, guid: b7938563d791a9d42b6542ba0b28c6b8, type: 3}
+      propertyPath: m_Constraints
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 150729244, guid: b7938563d791a9d42b6542ba0b28c6b8, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 150729244, guid: b7938563d791a9d42b6542ba0b28c6b8, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 150729244, guid: b7938563d791a9d42b6542ba0b28c6b8, type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2370017278596754503, guid: b7938563d791a9d42b6542ba0b28c6b8, type: 3}
       propertyPath: m_RootOrder
       value: 5

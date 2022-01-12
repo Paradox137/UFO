@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 356492463}
   - component: {fileID: 356492466}
   - component: {fileID: 356492465}
+  - component: {fileID: 946176990}
+  - component: {fileID: 946176991}
   m_Layer: 0
   m_Name: LeftLeg
   m_TagString: Untagged
@@ -81,6 +83,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &946176990
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356492462}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!138 &946176991
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356492462}
+  m_ConnectedBody: {fileID: 150729243}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &1295375387
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +125,8 @@ GameObject:
   - component: {fileID: 1295375388}
   - component: {fileID: 1295375391}
   - component: {fileID: 1295375390}
+  - component: {fileID: 1192164483}
+  - component: {fileID: 1192164484}
   m_Layer: 0
   m_Name: RightLeg
   m_TagString: Untagged
@@ -162,6 +197,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &1192164483
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295375387}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!138 &1192164484
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295375387}
+  m_ConnectedBody: {fileID: 150729243}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &1175776965879423716
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,6 +401,7 @@ GameObject:
   - component: {fileID: 2370017278596754503}
   - component: {fileID: 150729243}
   - component: {fileID: 150729244}
+  - component: {fileID: 200039799}
   m_Layer: 0
   m_Name: UFO
   m_TagString: Untagged
@@ -374,7 +441,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!65 &150729244
 BoxCollider:
@@ -388,4 +455,20 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 4.104192, y: 1.2692738, z: 3.7369175}
-  m_Center: {x: -0.007901669, y: -0.13463688, z: 0.061433792}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &200039799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6847651811046692112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f50afcd093632448414e8a07bfc75d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leftLegRb: {fileID: 946176990}
+  _speed: 4
+  _rightLegRb: {fileID: 1192164483}
+  _rotationMultiplier: 0.7

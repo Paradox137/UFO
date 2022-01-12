@@ -8,10 +8,13 @@ public class UFO : MonoBehaviour
     private Rigidbody _leftLegRb;
 
     [SerializeField]
-    private float _speed = 10f;
+    private float _speed = 4f;
 
     [SerializeField]
     private Rigidbody _rightLegRb;
+
+    [SerializeField]
+    private float _rotationMultiplier = 0.7f;
     private void Start()
     {
         
@@ -21,12 +24,22 @@ public class UFO : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            _leftLegRb.AddRelativeForce(Vector3.up * _speed); // 0 1 0
+            _leftLegRb.AddRelativeForce(Vector3.up * _speed * _rotationMultiplier);
+
+            _rightLegRb.AddRelativeForce(Vector3.up * _speed);
         }
 
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
-            _rightLegRb.AddRelativeForce(Vector3.up * _speed); // 0 1 0
+            _leftLegRb.AddRelativeForce(Vector3.up * _speed);
+
+            _rightLegRb.AddRelativeForce(Vector3.up * _speed * _rotationMultiplier);
+        }
+
+        else if(Input.GetKey(KeyCode.Space))
+        {
+            _leftLegRb.AddRelativeForce(Vector3.up * _speed);
+            _rightLegRb.AddRelativeForce(Vector3.up * _speed);
         }
     }
 
