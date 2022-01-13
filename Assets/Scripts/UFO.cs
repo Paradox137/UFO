@@ -14,7 +14,7 @@ public class UFO : MonoBehaviour
     private Rigidbody _rightLegRb;
 
     [SerializeField]
-    private float _rotationMultiplier = 0.85f;
+    private float _rotationMultiplier = 0.7f;
 
     [SerializeField]
     private SceneLoader _sceneLoader;
@@ -27,16 +27,16 @@ public class UFO : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            _leftLegRb.AddRelativeForce(Vector3.up * _speed * _rotationMultiplier);
+            _leftLegRb.AddRelativeForce(Vector3.up * _speed * _rotationMultiplier * 0.6f);
 
-            _rightLegRb.AddRelativeForce(Vector3.up * _speed);
+            _rightLegRb.AddRelativeForce(Vector3.up * _speed * 0.6f);
         }
 
         else if (Input.GetKey(KeyCode.D))
         {
-            _leftLegRb.AddRelativeForce(Vector3.up * _speed);
+            _leftLegRb.AddRelativeForce(Vector3.up * _speed * 0.6f);
 
-            _rightLegRb.AddRelativeForce(Vector3.up * _speed * _rotationMultiplier);
+            _rightLegRb.AddRelativeForce(Vector3.up * _speed * _rotationMultiplier * 0.6f);
         }
 
         else if(Input.GetKey(KeyCode.Space))
@@ -50,14 +50,20 @@ public class UFO : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Enemy");
-
-            _sceneLoader.LoadScene(0);
+            _sceneLoader.RestartScene();
         }
 
         if (collision.gameObject.tag == "Friend")
         {
-            Debug.Log("Friend");
+            _sceneLoader.NextScene();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            _sceneLoader.RestartScene();
         }
     }
     private void FixedUpdate()
